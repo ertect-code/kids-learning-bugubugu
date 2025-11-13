@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest World Dashboard - BuguBugu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bugu-green': '#4CAF50',
+                        'bugu-light-green': '#8BC34A',
+                        'bugu-yellow': '#FFEB3B',
+                        'bugu-blue': '#03A9F4',
+                        'bugu-purple': '#9C27B0',
+                        'bugu-pink': '#E91E63',
+                        'bugu-orange': '#FF9800',
+                    },
+                    fontFamily: {
+                        'baloo': ['Baloo 2', 'cursive'],
+                        'nunito': ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="font-nunito bg-gray-50 px-4 py-8">
+
+    <!-- Small Header -->
+    <div class="max-w-5xl mx-auto mb-6">
+        <button onclick="window.location.href='index.html'" class="text-bugu-green font-semibold flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Worlds
+        </button>
+
+        <h1 class="font-baloo text-3xl font-bold text-bugu-green mt-3">Forest World</h1>
+        <p class="text-gray-600 mt-1">Choose a feature to start learning!</p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Explore Map -->
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-r from-bugu-green to-bugu-light-green text-white flex items-center justify-center rounded-full text-2xl mb-3">
+                <i class="fas fa-map"></i>
+            </div>
+            <h3 class="font-baloo text-xl font-bold text-gray-800">Explore Forest Map</h3>
+            <p class="text-gray-600 text-sm mt-1 mb-4">Tap trees and animals to explore.</p>
+            <button class="w-full bg-bugu-green text-white py-2 rounded-full font-semibold">Open</button>
+        </div>
+        <!-- Sounds -->
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-r from-bugu-blue to-cyan-500 text-white flex items-center justify-center rounded-full text-2xl mb-3">
+                <i class="fas fa-volume-high"></i>
+            </div>
+            <h3 class="font-baloo text-xl font-bold text-gray-800">Forest Sounds</h3>
+            <p class="text-gray-600 text-sm mt-1 mb-4">Guess the sounds of nature.</p>
+            <button class="w-full bg-bugu-blue text-white py-2 rounded-full font-semibold">Start</button>
+        </div>
+
+        <!-- Quiz -->
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-r from-bugu-purple to-purple-500 text-white flex items-center justify-center rounded-full text-2xl mb-3">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <h3 class="font-baloo text-xl font-bold text-gray-800">Forest Quiz</h3>
+            <p class="text-gray-600 text-sm mt-1 mb-4">Test your knowledge!</p>
+            <button class="w-full bg-bugu-purple text-white py-2 rounded-full font-semibold">Play</button>
+        </div>
+
+        <!-- Stories -->
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-r from-bugu-pink to-pink-500 text-white flex items-center justify-center rounded-full text-2xl mb-3">
+                <i class="fas fa-book"></i>
+            </div>
+            <h3 class="font-baloo text-xl font-bold text-gray-800">Story Mode</h3>
+            <p class="text-gray-600 text-sm mt-1 mb-4">Read short interactive stories.</p>
+            <button class="w-full bg-bugu-pink text-white py-2 rounded-full font-semibold">Open</button>
+        </div>
+
+        <!-- Missions -->
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-r from-bugu-yellow to-amber-400 text-white flex items-center justify-center rounded-full text-2xl mb-3">
+                <i class="fas fa-flag"></i>
+            </div>
+            <h3 class="font-baloo text-xl font-bold text-gray-800">Missions</h3>
+            <p class="text-gray-600 text-sm mt-1 mb-4">Complete tasks to earn stars.</p>
+            <button class="w-full bg-bugu-yellow text-white py-2 rounded-full font-semibold">Start</button>
+        </div>
+
+        <!-- Badges -->
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-r from-bugu-orange to-red-500 text-white flex items-center justify-center rounded-full text-2xl mb-3">
+                <i class="fas fa-award"></i>
+            </div>
+            <h3 class="font-baloo text-xl font-bold text-gray-800">Rewards & Badges</h3>
+            <p class="text-gray-600 text-sm mt-1 mb-4">See your achievements.</p>
+            <button class="w-full bg-bugu-orange text-white py-2 rounded-full font-semibold">View</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
