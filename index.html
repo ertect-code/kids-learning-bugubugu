@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuguBugu - Magical Learning Adventures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bugu-green': '#4CAF50',
+                        'bugu-light-green': '#8BC34A',
+                        'bugu-yellow': '#FFEB3B',
+                        'bugu-blue': '#03A9F4',
+                        'bugu-purple': '#9C27B0',
+                        'bugu-pink': '#E91E63',
+                        'bugu-orange': '#FF9800',
+                    },
+                    fontFamily: {
+                        'baloo': ['Baloo 2', 'cursive'],
+                        'nunito': ['Nunito', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'bounce': 'bounce 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bugu-character {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        }
+        .world-card:hover .world-icon {
+            transform: scale(1.1);
+        }
+        .festival-card:hover .festival-icon {
+            transform: scale(1.1);
+        }
+        .culture-card:hover .culture-icon {
+            transform: scale(1.1);
+        }
+        .card-image {
+            height: 140px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.1));
+        }
+    </style>
+</head>
+<body class="font-nunito bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-md z-50 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bugu-character w-10 h-10 rounded-full mr-2 relative overflow-hidden">
+                    <div class="absolute w-4 h-4 bg-white rounded-full top-2 left-3"></div>
+                    <div class="absolute w-2 h-2 bg-white rounded-full bottom-2 right-3"></div>
+                </div>
+                <span class="font-baloo text-2xl font-bold text-bugu-green">BuguBugu</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="font-semibold text-gray-700 hover:text-bugu-green transition">Home</a>
+                <a href="#" class="font-semibold text-gray-700 hover:text-bugu-green transition">Worlds</a>
+                <a href="#" class="font-semibold text-gray-700 hover:text-bugu-green transition">Festivals</a>
+                <a href="#" class="font-semibold text-gray-700 hover:text-bugu-green transition">Culture</a>
+                <a href="#" class="font-semibold text-gray-700 hover:text-bugu-green transition">Parent Mode</a>
+            </div>
+            <div class="flex space-x-4">
+                <button onclick="window.location.href='login.html'"
+    class="px-4 py-2 rounded-full text-bugu-green font-semibold hover:bg-green-50 transition">
+    Login
+</button>
+<button onclick="window.location.href='signup.html'"
+    class="px-4 py-2 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green text-white font-semibold shadow-lg">
+    Sign Up
+</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-green-50 relative overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="font-baloo text-4xl md:text-5xl font-bold text-bugu-green mb-6">Explore Magical Learning Worlds with Bugu!</h1>
+                <p class="text-xl text-gray-600 mb-8">Start your journey with Forest Adventure. More exciting worlds coming soon.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="px-6 py-3 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green text-white font-semibold shadow-lg hover:shadow-xl transition">Start Forest Adventure</button>
+                    <button class="px-6 py-3 rounded-full border-2 border-bugu-green text-bugu-green font-semibold hover:bg-green-50 transition">Explore All Worlds</button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="bugu-character w-64 h-64 rounded-full relative animate-float">
+                    <div class="absolute w-20 h-20 bg-white rounded-full top-14 left-20"></div>
+                    <div class="absolute w-8 h-8 bg-white rounded-full bottom-16 right-16"></div>
+                    <div class="absolute w-12 h-12 bg-gray-800 rounded-full top-20 left-28"></div>
+                    <div class="absolute w-4 h-4 bg-white rounded-full top-24 left-32"></div>
+                    <div class="absolute w-24 h-8 border-b-8 border-gray-800 rounded-b-full bottom-20 left-24"></div>
+                    <div class="absolute w-16 h-24 bg-green-300 rounded-full top-16 right-8 transform rotate-12 animate-wiggle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-10 left-10 w-8 h-8 bg-bugu-green rounded-full opacity-50 animate-pulse"></div>
+        <div class="absolute bottom-20 left-20 w-6 h-6 bg-bugu-green rounded-full opacity-70 animate-pulse" style="animation-delay: 0.5s;"></div>
+        <div class="absolute top-32 right-20 w-10 h-10 bg-bugu-green rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+    </section>
+
+    <!-- Worlds Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-baloo text-3xl md:text-4xl font-bold text-center text-bugu-green mb-12">Choose Your Learning World</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Forest World -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 world-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9yZXN0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="world-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Forest World</h3>
+                    <p class="text-gray-600 mb-4">Explore nature, animals, and magical trees.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green text-white font-semibold">Start Adventure</button>
+                </div>
+                
+                <!-- Ocean World -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 relative world-card">
+                    <div class="absolute top-4 right-4 text-gray-400">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2NlYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="world-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-blue to-blue-500 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Ocean World</h3>
+                    <p class="text-gray-600 mb-4">Dive deep to discover marine life wonders.</p>
+                    <button class="w-full py-2 rounded-full border-2 border-gray-300 text-gray-400 font-semibold" disabled>Coming Soon</button>
+                </div>
+                
+                <!-- Space World -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 relative world-card">
+                    <div class="absolute top-4 right-4 text-gray-400">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="world-icon w-20 h-20 rounded-full bg-gradient-to-r from-purple-800 to-purple-600 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Space World</h3>
+                    <p class="text-gray-600 mb-4">Blast off to explore planets and stars.</p>
+                    <button class="w-full py-2 rounded-full border-2 border-gray-300 text-gray-400 font-semibold" disabled>Coming Soon</button>
+                </div>
+                
+                <!-- Dinosaur World -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 relative world-card">
+                    <div class="absolute top-4 right-4 text-gray-400">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1598886301639-894ecd18ed3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRpbm9zYXVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="world-icon w-20 h-20 rounded-full bg-gradient-to-r from-amber-800 to-amber-600 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Dinosaur World</h3>
+                    <p class="text-gray-600 mb-4">Meet amazing prehistoric creatures.</p>
+                    <button class="w-full py-2 rounded-full border-2 border-gray-300 text-gray-400 font-semibold" disabled>Coming Soon</button>
+                </div>
+                
+                <!-- Magic World -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 relative world-card">
+                    <div class="absolute top-4 right-4 text-gray-400">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hZ2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="world-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-purple to-bugu-pink flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-hat-wizard"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Magic World</h3>
+                    <p class="text-gray-600 mb-4">Discover spells and magical creatures.</p>
+                    <button class="w-full py-2 rounded-full border-2 border-gray-300 text-gray-400 font-semibold" disabled>Coming Soon</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festivals Section -->
+    <section class="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-baloo text-3xl md:text-4xl font-bold text-center text-bugu-orange mb-12">Celebrate Festivals</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Diwali -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 festival-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1604669361196-40b11e7b1dc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGl3YWxpfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="festival-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-yellow to-amber-400 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Diwali</h3>
+                    <p class="text-gray-600 mb-4">Lights, rangoli, joy and celebration.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-yellow to-amber-400 text-white font-semibold">Explore Festival</button>
+                </div>
+                
+                <!-- Holi -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 festival-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1559028006-448665bd7c7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9saXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="festival-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-pink to-purple-500 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Holi</h3>
+                    <p class="text-gray-600 mb-4">Festival of colors and happiness.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-pink to-purple-500 text-white font-semibold">Explore Festival</button>
+                </div>
+                
+                <!-- Christmas -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 festival-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hyaXN0bWFzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="festival-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Christmas</h3>
+                    <p class="text-gray-600 mb-4">Gifts, bells, and winter magic.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green text-white font-semibold">Explore Festival</button>
+                </div>
+                
+                <!-- Eid -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 festival-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWlkfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="festival-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-blue to-cyan-500 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Eid</h3>
+                    <p class="text-gray-600 mb-4">Togetherness, blessings, and joy.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-blue to-cyan-500 text-white font-semibold">Explore Festival</button>
+                </div>
+                
+                <!-- Pongal -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 festival-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9uZ2FsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="festival-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-orange to-red-500 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-bowl-food"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Pongal</h3>
+                    <p class="text-gray-600 mb-4">Harvest festival of Tamil culture.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-orange to-red-500 text-white font-semibold">Explore Festival</button>
+                </div>
+                
+                <!-- Navratri -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2 festival-card">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1603383928972-0d6b0c2b4c0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF2cmF0cml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="festival-icon w-20 h-20 rounded-full bg-gradient-to-r from-bugu-purple to-pink-500 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Navratri</h3>
+                    <p class="text-gray-600 mb-4">Dandiya, garba, and devotion.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-bugu-purple to-pink-500 text-white font-semibold">Explore Festival</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-baloo text-3xl md:text-4xl font-bold text-center text-bugu-purple mb-12">Discover Cultures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Food & Sweets -->
+                <div class="culture-card bg-gradient-to-br from-amber-100 to-amber-200 rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="culture-icon w-20 h-20 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Food & Sweets</h3>
+                    <p class="text-gray-600 mb-4">Delicious cultural foods from around the world.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold">Learn More</button>
+                </div>
+                
+                <!-- Clothes & Costumes -->
+                <div class="culture-card bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb25e5b8357f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhZGl0aW9uYWwlMjBjbG90aGVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="culture-icon w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Clothes & Costumes</h3>
+                    <p class="text-gray-600 mb-4">Traditional outfits from different regions.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 text-white font-semibold">Learn More</button>
+                </div>
+                
+                <!-- Music & Dance -->
+                <div class="culture-card bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWMlMjBhbmQlMjBkYW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="culture-icon w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Music & Dance</h3>
+                    <p class="text-gray-600 mb-4">Rhythms, instruments, and cultural dances.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold">Learn More</button>
+                </div>
+                
+                <!-- Stories & Traditions -->
+                <div class="culture-card bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl shadow-lg p-6 text-center transition-transform hover:-translate-y-2">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3Rvcmllc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60')"></div>
+                    <div class="culture-icon w-20 h-20 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white text-3xl mx-auto mb-4 transition-transform">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-gray-800 mb-2">Stories & Traditions</h3>
+                    <p class="text-gray-600 mb-4">Legends, folktales, and age-old customs.</p>
+                    <button class="w-full py-2 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-baloo text-3xl md:text-4xl font-bold text-center text-bugu-green mb-12">Why Kids Love BuguBugu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-bugu-green mb-2">AI Voice Narration</h3>
+                    <p class="text-gray-600">Bugu speaks and guides children through adventures.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-bugu-green mb-2">Interactive Learning</h3>
+                    <p class="text-gray-600">Tap animals and objects to discover fun facts.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-bugu-green mb-2">Quizzes & Rewards</h3>
+                    <p class="text-gray-600">Earn badges by completing educational challenges.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-bugu-green to-bugu-light-green flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="font-baloo text-xl font-bold text-bugu-green mb-2">Parent Dashboard</h3>
+                    <p class="text-gray-600">Monitor progress and set safety preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="bugu-character w-8 h-8 rounded-full mr-2 relative overflow-hidden">
+                            <div class="absolute w-3 h-3 bg-white rounded-full top-1 left-2"></div>
+                            <div class="absolute w-1.5 h-1.5 bg-white rounded-full bottom-1 right-2"></div>
+                        </div>
+                        <span class="font-baloo text-xl font-bold text-white">BuguBugu</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">Magical learning for children ages 4-10</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">About</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 BuguBugu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
