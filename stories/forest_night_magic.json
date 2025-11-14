@@ -1,0 +1,25 @@
+{
+  "title": "Forest Night Magic",
+  "pages": [
+    {
+      "text": "Night falls and tiny fireflies light up the dark forest.",
+      "image": "night_forest.png"
+    },
+    {
+      "text": "The owl hoots softly, watching over everyone.",
+      "image": "owl_night.png"
+    },
+    {
+      "text": "Stars twinkle above the tall trees.",
+      "image": "stars_forest.png"
+    },
+    {
+      "text": "You walk slowly on a silver-lit path made by moonlight.",
+      "image": "moon_path.png"
+    },
+    {
+      "text": "The forest glows peacefully. It’s like a dream come true.",
+      "image": "night_glow.png"
+    }
+  ]
+}

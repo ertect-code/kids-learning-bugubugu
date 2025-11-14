@@ -1,0 +1,25 @@
+{
+  "title": "Nature Protection Quiz",
+  "questions": [
+    {
+      "question": "What should you do with waste?",
+      "options": ["Throw in dustbin", "Throw in river", "Burn plastic", "Throw anywhere"],
+      "answer": "Throw in dustbin"
+    },
+    {
+      "question": "Plants give us?",
+      "options": ["Oxygen", "Plastic", "Petrol", "Metal"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which activity protects forests?",
+      "options": ["Planting trees", "Cutting trees", "Burning forests", "Hunting animals"],
+      "answer": "Planting trees"
+    },
+    {
+      "question": "What should we save?",
+      "options": ["Water", "Smoke", "Noise", "Garbage"],
+      "answer": "Water"
+    }
+  ]
+}

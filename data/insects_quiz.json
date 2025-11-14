@@ -1,0 +1,25 @@
+{
+  "title": "Insects Quiz",
+  "questions": [
+    {
+      "question": "Which insect has colorful wings?",
+      "options": ["Butterfly", "Ant", "Termite", "Mosquito"],
+      "answer": "Butterfly"
+    },
+    {
+      "question": "Which insect makes honey?",
+      "options": ["Bee", "Fly", "Beetle", "Wasp"],
+      "answer": "Bee"
+    },
+    {
+      "question": "Which insect glows at night?",
+      "options": ["Firefly", "Spider", "Ant", "Grasshopper"],
+      "answer": "Firefly"
+    },
+    {
+      "question": "Which insect can jump long distances?",
+      "options": ["Grasshopper", "Caterpillar", "Mosquito", "Snail"],
+      "answer": "Grasshopper"
+    }
+  ]
+}

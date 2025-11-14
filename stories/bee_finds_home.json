@@ -1,0 +1,25 @@
+{
+  "title": "The Bee Who Found a New Home",
+  "pages": [
+    {
+      "text": "Buzzy the bee is searching for a warm and safe home.",
+      "image": "bee_fly1.png"
+    },
+    {
+      "text": "She visits the tall oak tree, but it’s already full of squirrels.",
+      "image": "oak_tree.png"
+    },
+    {
+      "text": "She checks the flower meadow, but butterflies live there.",
+      "image": "meadow.png"
+    },
+    {
+      "text": "Finally, she finds an old hollow log that feels perfect.",
+      "image": "hollow_log.png"
+    },
+    {
+      "text": "Buzzy makes it her new home and happily buzzes around all day!",
+      "image": "bee_home.png"
+    }
+  ]
+}

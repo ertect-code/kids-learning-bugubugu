@@ -1,0 +1,25 @@
+{
+  "title": "Birds Quiz",
+  "questions": [
+    {
+      "question": "Which bird is known for hooting at night?",
+      "options": ["Owl", "Parrot", "Sparrow", "Duck"],
+      "answer": "Owl"
+    },
+    {
+      "question": "Which bird cannot fly?",
+      "options": ["Penguin", "Eagle", "Crow", "Swan"],
+      "answer": "Penguin"
+    },
+    {
+      "question": "Which bird is famous for talking?",
+      "options": ["Parrot", "Ostrich", "Pigeon", "Peacock"],
+      "answer": "Parrot"
+    },
+    {
+      "question": "Which bird is the national bird of India?",
+      "options": ["Peacock", "Sparrow", "Eagle", "Flamingo"],
+      "answer": "Peacock"
+    }
+  ]
+}

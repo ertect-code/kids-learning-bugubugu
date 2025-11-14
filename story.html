@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Story Reader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-100 to-indigo-100 min-h-screen flex items-center justify-center">
+
+<div id="story-box" class="bg-white p-8 rounded-2xl shadow-2xl w-[90%] max-w-2xl text-center">
+
+    <h2 id="story-title" class="text-3xl font-bold mb-6"></h2>
+
+    <img id="story-image" src="" class="w-full h-64 object-contain mb-6 rounded-xl shadow" />
+
+    <p id="story-text" class="text-xl text-gray-700 mb-6"></p>
+
+    <!-- Buttons -->
+    <div class="flex justify-between mt-6">
+        <button id="prevBtn"
+            class="bg-gray-300 text-gray-700 py-3 px-6 rounded-xl hidden">
+            ← Previous
+        </button>
+
+        <button id="nextBtn"
+            class="bg-blue-600 text-white py-3 px-6 rounded-xl">
+            Next →
+        </button>
+    </div>
+
+</div>
+
+<script>
+let storyData, index = 0;
+
+async function loadStory() {
+    const storyFile = localStorage.getItem("storyFile");
+    const response = await fetch("stories/" + storyFile);
+    storyData = await response.json();
+
+    document.getElementById("story-title").innerText = storyData.title;
+    showPage();
+}
+
+function showPage() {
+    const page = storyData.pages[index];
+
+    document.getElementById("story-text").innerText = page.text;
+    document.getElementById("story-image").src = "stories/" + page.image;
+
+    // Show/hide buttons
+    document.getElementById("prevBtn").style.display = index === 0 ? "none" : "block";
+
+    if (index === storyData.pages.length - 1) {
+        document.getElementById("nextBtn").innerText = "Finish";
+    } else {
+        document.getElementById("nextBtn").innerText = "Next →";
+    }
+}
+
+// NEXT PAGE
+document.getElementById("nextBtn").onclick = () => {
+    if (index < storyData.pages.length - 1) {
+        index++;
+        showPage();
+    } else {
+        // story completed screen
+        document.getElementById("story-box").innerHTML = `
+            <h2 class='text-4xl font-bold text-green-600 mb-4'>🎉 Story Completed!</h2>
+            <p class='text-xl text-gray-700 mb-6'>Hope you enjoyed the story!</p>
+            <a href='story_category.html'>
+                <button class='bg-blue-600 text-white py-3 px-6 rounded-xl'>Back to Stories</button>
+            </a>
+        `;
+    }
+};
+
+// PREVIOUS PAGE
+document.getElementById("prevBtn").onclick = () => {
+    if (index > 0) {
+        index--;
+        showPage();
+    }
+};
+
+loadStory();
+</script>
+
+</body>
+</html>

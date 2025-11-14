@@ -1,0 +1,42 @@
+{
+  "tree": [
+    "This is the magical learning tree!",
+    "Trees are homes for birds and squirrels. They give us oxygen!"
+  ],
+  "tree_facts": [
+    "An old oak tree can live for hundreds of years.",
+    "Leaves make food for the tree using sunlight."
+  ],
+  "river": [
+    "This is a fresh river — animals drink from it!",
+    "Rivers carry water across the forest and feed plants."
+  ],
+  "river_facts": [
+    "Rivers are full of tiny creatures like insects and fish.",
+    "Clean water is important for all living things."
+  ],
+  "fox": [
+    "Mr. Fox loves stories and hiding games.",
+    "Foxes are clever and notice little things in the forest."
+  ],
+  "fox_facts": [
+    "Foxes use their tails for balance and warmth.",
+    "A fox's hearing is very sharp."
+  ],
+  "bunny": [
+    "Bunny loves carrots! Want to help find one?",
+    "Bunnies are quiet and quick — they hop a lot."
+  ],
+  "bunny_facts": [
+    "Bunnies make soft burrows to live in.",
+    "They have long ears to hear far away sounds."
+  ],
+  "star": [
+    "You found a secret star! Great job!",
+    "Stars help us unlock fun rewards in the game."
+  ],
+  "random": [
+    "Buzz buzz! Tap a tree, river, or animal to learn something!",
+    "I can ask you a small question or tell a fun fact — try clicking an icon!"
+  ]
+}

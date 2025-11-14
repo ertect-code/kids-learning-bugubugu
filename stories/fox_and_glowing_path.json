@@ -1,0 +1,25 @@
+{
+  "title": "The Fox and the Glowing Path",
+  "pages": [
+    {
+      "text": "Firo the fox discovers a glowing trail deep inside the forest.",
+      "image": "fox1.png"
+    },
+    {
+      "text": "The path sparkles like tiny stars scattered on the ground.",
+      "image": "glowing_path.png"
+    },
+    {
+      "text": "Firo follows it and reaches a secret pond shining like a mirror.",
+      "image": "forest_pond.png"
+    },
+    {
+      "text": "A soft voice whispers, 'You found the pond of wishes.'",
+      "image": "magic_pond.png"
+    },
+    {
+      "text": "Firo makes a wish for kindness and happiness for the whole forest.",
+      "image": "fox_wish.png"
+    }
+  ]
+}

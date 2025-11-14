@@ -1,0 +1,25 @@
+{
+  "title": "The Magical Forest Walk",
+  "pages": [
+    {
+      "text": "You enter a bright forest where sunlight dances on the leaves.",
+      "image": "forest1.png"
+    },
+    {
+      "text": "A cute squirrel jumps down and waves at you happily!",
+      "image": "squirrel.png"
+    },
+    {
+      "text": "You follow a glowing path covered with soft flowers.",
+      "image": "path.png"
+    },
+    {
+      "text": "A beautiful glowing tree stands in front of you. It feels magical.",
+      "image": "magic_tree.png"
+    },
+    {
+      "text": "You take a deep breath and smile. What a lovely forest adventure!",
+      "image": "forest_end.png"
+    }
+  ]
+}

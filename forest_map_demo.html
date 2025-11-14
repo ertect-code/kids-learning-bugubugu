@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Forest Map — BuguBugu World</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  html,body { height:100%; margin:0; overflow:hidden; font-family:'Inter',sans-serif; }
+
+  .map-wrap { position:relative; width:100%; height:100vh; }
+
+  .bg-img { width:100%; height:100%; object-fit:cover; transition:filter .6s ease; }
+
+  .hotspot {
+      position:absolute;
+      transform:translate(-50%, -50%);
+      cursor:pointer;
+      transition:.20s ease;
+  }
+  .hotspot:hover {
+      transform:translate(-50%, -50%) scale(1.12);
+      filter:brightness(1.25);
+  }
+
+  #bee {
+      position:absolute;
+      width:70px;
+      transform:translate(-50%,-50%);
+      z-index:60;
+      transition:left .9s ease, top .9s ease;
+  }
+  #bee img {
+      width:100%; animation:flap .25s infinite ease-in-out;
+  }
+  @keyframes flap {
+      0% { transform:rotate(-6deg); }
+      50% { transform:rotate(6deg); }
+      100% { transform:rotate(-6deg); }
+  }
+
+  .bubble {
+      position:absolute;
+      z-index:70;
+      max-width:300px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.95);
+      box-shadow:0 6px 30px rgba(0,0,0,.25);
+      opacity:0;
+      transform:translate(-50%, -140%);
+      transition:.2s ease;
+  }
+  .bubble.show { opacity:1; }
+
+  .bubble .actions { margin-top:6px; display:flex; gap:6px; justify-content:center; }
+
+  .cloud { position:absolute; opacity:.75; transition:left 12s linear; }
+</style>
+</head>
+
+<body>
+
+<div class="map-wrap" id="mapWrap">
+
+  <!-- Your day background -->
+  <img id="bgImg" class="bg-img" src="map/forest_day.png"/>
+
+  <!-- Clouds — (remove if you don’t have clouds) -->
+  <!-- If you want clouds, add cloud images and update these paths -->
+  <!-- <img class="cloud" src="map/cloud1.png" style="top:8%; left:5%; width:220px;"> -->
+  <!-- <img class="cloud" src="map/cloud2.png" style="top:14%; right:8%; width:260px;"> -->
+
+  <!-- Tree Quiz (replace with your tree image if you have one) -->
+  <img src="map/fox.png" id="hsTree"
+       class="hotspot" style="left:20%; top:60%; width:90px;" />
+
+  <!-- River (you don't have water icon, so use deer or bird for now) -->
+  <img src="map/Deer.png" id="hsRiver"
+       class="hotspot" style="left:60%; top:72%; width:110px;" />
+
+  <!-- Secret Star (you don’t have star.png, so remove or add a star) -->
+  <!-- Remove this until you add star -->
+  <!--
+  <img src="map/star.png" id="hsStar"
+       class="hotspot" style="left:88%; top:20%; width:60px;" />
+  -->
+
+  <!-- ANIMALS FROM YOUR FOLDER -->
+  <img src="map/squirrel.png" id="hsSquirrel"
+       class="hotspot" style="left:18%; top:88%; width:70px;" />
+
+  <img src="map/Bird.png" id="hsBird"
+       class="hotspot" style="left:22%; top:38%; width:60px;" />
+
+  <img src="map/Owl.png" id="hsOwl"
+       class="hotspot" style="left:75%; top:38%; width:70px;" />
+
+  <img src="map/Deer.png" id="hsDeer"
+       class="hotspot" style="left:50%; top:70%; width:140px;" />
+
+  <img src="map/bunny.png" id="hsBunnyAnimal"
+       class="hotspot" style="left:32%; top:75%; width:80px;" />
+
+  <!-- BEE -->
+  <div id="bee" style="left:10%; top:18%;">
+    <img src="map/bee.png" />
+  </div>
+
+  <!-- SPEECH BUBBLE -->
+  <div id="bubble" class="bubble">
+    <div id="bubbleText">Tap anywhere and I'll fly there!</div>
+    <div id="bubbleActions" class="actions"></div>
+  </div>
+</div>
+
+<!-- HUD -->
+<div class="absolute top-4 right-4 bg-white rounded-xl shadow-xl p-4">
+  <div class="text-xl font-bold">BuguBugu Demo</div>
+  <div id="starCount">⭐ Stars: 0</div>
+  <button id="toggleBtn"
+          class="mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg">
+          Toggle Day/Night
+  </button>
+</div>
+
+<audio id="clickSnd" src="map/click.mp3"></audio>
+
+<script>
+/* SAME JS LOGIC — JUST WORKS WITH UPDATED IMAGES */
+let dialogues = {};
+fetch("map/bee_dialogues.json").then(r=>r.json()).then(j=>dialogues=j);
+
+const bee = document.getElementById("bee");
+const bubble = document.getElementById("bubble");
+const bubbleText = document.getElementById("bubbleText");
+const bubbleActions = document.getElementById("bubbleActions");
+const clickSnd = document.getElementById("clickSnd");
+let stars = 0;
+
+function speak(text){
+  const u = new SpeechSynthesisUtterance(text);
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function moveBee(x,y,callback){
+  const wrap = document.getElementById("mapWrap").getBoundingClientRect();
+  let leftPct = (x - wrap.left) / wrap.width * 100;
+  let topPct  = (y - wrap.top) / wrap.height * 100;
+
+  leftPct = Math.max(5, Math.min(95, leftPct));
+  topPct  = Math.max(5, Math.min(95, topPct));
+
+  bee.style.left = leftPct+"%";
+  bee.style.top  = topPct+"%";
+
+  bubble.style.left = leftPct+"%";
+  bubble.style.top = (topPct - 12)+"%";
+
+  setTimeout(callback, 800);
+}
+
+function showMessage(msg, actions=[]){
+  bubbleText.innerText = msg;
+  bubbleActions.innerHTML = "";
+
+  if(actions.length > 0){
+    actions.forEach(a=>{
+      let btn = document.createElement("button");
+      btn.className="px-3 py-2 bg-teal-500 text-white rounded-lg";
+      btn.innerText=a.text;
+      btn.onclick=a.click;
+      bubbleActions.appendChild(btn);
+    });
+  }
+
+  bubble.classList.add("show");
+  speak(msg);
+}
+
+document.getElementById("mapWrap").addEventListener("click", e=>{
+  if(e.target.classList.contains("hotspot")) return;
+  moveBee(e.clientX,e.clientY,()=>{
+    const d = dialogues.random;
+    showMessage(d[Math.floor(Math.random()*d.length)]);
+  });
+});
+
+function hotspot(kind, e){
+  e.stopPropagation();
+
+  const r = e.target.getBoundingClientRect();
+  const cx = r.left + r.width/2;
+  const cy = r.top + r.height/2;
+
+  moveBee(cx,cy,()=>{
+    const arr = dialogues[kind] || dialogues.random;
+    const msg = arr[Math.floor(Math.random()*arr.length)];
+
+    let actions = [
+      {text:"More Facts", click:()=> showMessage(getFact(kind))},
+      {text:"Ask Me!", click:()=> askQuiz(kind)}
+    ];
+
+    showMessage(msg, actions);
+  });
+}
+
+function getFact(kind){
+  let arr = dialogues[kind+"_facts"] || ["Nature is amazing!"];
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+
+document.getElementById("hsTree").onclick = e=> hotspot("tree",e);
+document.getElementById("hsRiver").onclick = e=> hotspot("river",e);
+
+document.getElementById("hsSquirrel").onclick = e=> hotspot("squirrel",e);
+document.getElementById("hsBird").onclick = e=> hotspot("bird",e);
+document.getElementById("hsOwl").onclick = e=> hotspot("owl",e);
+document.getElementById("hsDeer").onclick = e=> hotspot("deer",e);
+document.getElementById("hsBunnyAnimal").onclick = e=> hotspot("bunny_animal",e);
+
+// Day / Night
+document.getElementById("toggleBtn").onclick = ()=>{
+  const bg = document.getElementById("bgImg");
+  if(bg.src.includes("forest_day")){
+    bg.src = "map/Night Background.png";
+    bg.style.filter="brightness(.6)";
+  } else {
+    bg.src = "map/Day Background.png";
+    bg.style.filter="brightness(1)";
+  }
+};
+</script>
+
+</body>
+</html>

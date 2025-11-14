@@ -1,0 +1,25 @@
+{
+  "title": "Plants Quiz",
+  "questions": [
+    {
+      "question": "Which part of the plant makes food?",
+      "options": ["Leaf", "Root", "Stem", "Flower"],
+      "answer": "Leaf"
+    },
+    {
+      "question": "What do plants need to grow?",
+      "options": ["Sunlight", "Sand", "Plastic", "Metal"],
+      "answer": "Sunlight"
+    },
+    {
+      "question": "Which plant grows from a seed?",
+      "options": ["All plants", "Only big trees", "Only flowers", "Only grass"],
+      "answer": "All plants"
+    },
+    {
+      "question": "Which part of the plant absorbs water?",
+      "options": ["Roots", "Leaves", "Flower", "Fruit"],
+      "answer": "Roots"
+    }
+  ]
+}

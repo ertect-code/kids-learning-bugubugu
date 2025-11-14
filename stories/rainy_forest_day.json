@@ -1,0 +1,25 @@
+{
+  "title": "Rainy Day in the Forest",
+  "pages": [
+    {
+      "text": "Dark clouds gather over the forest and raindrops begin to fall.",
+      "image": "rain_start.png"
+    },
+    {
+      "text": "Animals quickly find shelter under big trees and rocks.",
+      "image": "animals_shelter.png"
+    },
+    {
+      "text": "You hear the soft sound of rain tapping on leaves.",
+      "image": "rain_leaves.png"
+    },
+    {
+      "text": "The rain stops and a bright rainbow appears in the sky.",
+      "image": "rainbow.png"
+    },
+    {
+      "text": "Everyone comes out smiling. The forest feels fresh and new!",
+      "image": "forest_fresh.png"
+    }
+  ]
+}

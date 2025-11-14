@@ -1,0 +1,45 @@
+{
+  "title": "Forest Quiz",
+  "questions": [
+    {
+      "question": "What is a forest mostly made of?",
+      "options": ["Trees", "Cars", "Houses", "Boats"],
+      "answer": "Trees"
+    },
+    {
+      "question": "Which grows on the forest floor?",
+      "options": ["Mushrooms", "Stars", "Clouds", "Electric poles"],
+      "answer": "Mushrooms"
+    },
+    {
+      "question": "Animals that live in forests are called?",
+      "options": ["Wild animals", "Pet animals", "Farm animals", "Sea animals"],
+      "answer": "Wild animals"
+    },
+    {
+      "question": "What do trees give us?",
+      "options": ["Oxygen", "Plastic", "Metal", "Sand"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which sound can you hear in a forest?",
+      "options": ["Bird chirping", "Car horns", "Construction noise", "Train sounds"],
+      "answer": "Bird chirping"
+    },
+    {
+      "question": "What covers the ground in a forest?",
+      "options": ["Grass and leaves", "Glass tiles", "Carpet", "Metal plates"],
+      "answer": "Grass and leaves"
+    },
+    {
+      "question": "Which tree is commonly found in cold forests?",
+      "options": ["Pine", "Coconut", "Palm", "Banana"],
+      "answer": "Pine"
+    },
+    {
+      "question": "Which animal lives in forest trees?",
+      "options": ["Monkey", "Shark", "Camel", "Penguin"],
+      "answer": "Monkey"
+    }
+  ]
+}

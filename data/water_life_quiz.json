@@ -1,0 +1,25 @@
+{
+  "title": "Water Life Quiz",
+  "questions": [
+    {
+      "question": "Which animal lives in water?",
+      "options": ["Fish", "Tiger", "Cow", "Elephant"],
+      "answer": "Fish"
+    },
+    {
+      "question": "Which animal is the biggest in the ocean?",
+      "options": ["Blue Whale", "Shark", "Dolphin", "Seal"],
+      "answer": "Blue Whale"
+    },
+    {
+      "question": "Which fish has bright colors and lives in coral reefs?",
+      "options": ["Clownfish", "Catfish", "Carp", "Salmon"],
+      "answer": "Clownfish"
+    },
+    {
+      "question": "What do fish use to breathe?",
+      "options": ["Gills", "Lungs", "Nose", "Skin"],
+      "answer": "Gills"
+    }
+  ]
+}

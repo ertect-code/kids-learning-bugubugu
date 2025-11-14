@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Story Mode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-pink-100 to-purple-100 min-h-screen flex items-center justify-center">
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 max-w-6xl">
+
+    <!-- Magical Tree Story -->
+    <div onclick="openStory('magical_tree_story.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-green-600">🌳 Magical Tree Story</h2>
+        <p class="text-center text-gray-600 mt-2">The glowing tree of light</p>
+    </div>
+
+    <!-- Brave Little Bird -->
+    <div onclick="openStory('brave_little_bird.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-sky-600">🐦 Brave Little Bird</h2>
+        <p class="text-center text-gray-600 mt-2">A bird learns to fly high</p>
+    </div>
+
+    <!-- Bunny Forest Run -->
+    <div onclick="openStory('bunny_forest_run.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-purple-600">🐰 Bunny Forest Run</h2>
+        <p class="text-center text-gray-600 mt-2">A happy bunny adventure</p>
+    </div>
+
+    <!-- Bee Finds Home -->
+    <div onclick="openStory('bee_finds_home.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-amber-600">🏠 Bee Finds Home</h2>
+        <p class="text-center text-gray-600 mt-2">A bee searches for a home</p>
+    </div>
+
+    <!-- Fox and the Glowing Path -->
+    <div onclick="openStory('fox_and_glowing_path.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-orange-600">🦊 Glowing Path</h2>
+        <p class="text-center text-gray-600 mt-2">A fox finds a magic trail</p>
+    </div>
+
+    <!-- Rainy Forest Day -->
+    <div onclick="openStory('rainy_forest_day.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-blue-600">🌧 Rainy Forest Day</h2>
+        <p class="text-center text-gray-600 mt-2">A rainy forest adventure</p>
+    </div>
+
+    <!-- Forest Night Magic -->
+    <div onclick="openStory('forest_night_magic.json')"
+         class="cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition">
+        <h2 class="text-2xl font-bold text-center text-indigo-600">🌙 Forest Night Magic</h2>
+        <p class="text-center text-gray-600 mt-2">A magical night in the forest</p>
+    </div>
+
+</div>
+
+<script>
+function openStory(file) {
+    localStorage.setItem("storyFile", file);
+    window.location.href = "story.html";
+}
+</script>
+
+</body>
+</html>

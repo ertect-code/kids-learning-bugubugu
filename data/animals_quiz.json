@@ -1,0 +1,45 @@
+{
+  "title": "Animals Quiz",
+  "questions": [
+    {
+      "question": "Which animal is known as the king of the jungle?",
+      "options": ["Lion", "Tiger", "Elephant", "Bear"],
+      "answer": "Lion"
+    },
+    {
+      "question": "Which animal lives in water?",
+      "options": ["Fish", "Monkey", "Horse", "Cheetah"],
+      "answer": "Fish"
+    },
+    {
+      "question": "Which animal hops and has long ears?",
+      "options": ["Rabbit", "Fox", "Goat", "Cow"],
+      "answer": "Rabbit"
+    },
+    {
+      "question": "Which animal gives us milk?",
+      "options": ["Cow", "Tiger", "Dog", "Lion"],
+      "answer": "Cow"
+    },
+    {
+      "question": "Which animal can change its color?",
+      "options": ["Chameleon", "Elephant", "Buffalo", "Rhino"],
+      "answer": "Chameleon"
+    },
+    {
+      "question": "Which animal is very slow?",
+      "options": ["Sloth", "Horse", "Dog", "Leopard"],
+      "answer": "Sloth"
+    },
+    {
+      "question": "Which animal has a long trunk?",
+      "options": ["Elephant", "Giraffe", "Camel", "Zebra"],
+      "answer": "Elephant"
+    },
+    {
+      "question": "Which animal is the fastest runner?",
+      "options": ["Cheetah", "Kangaroo", "Wolf", "Bear"],
+      "answer": "Cheetah"
+    }
+  ]
+}

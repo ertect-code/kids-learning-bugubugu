@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-green-100 to-blue-100 min-h-screen flex items-center justify-center">
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 w-full max-w-6xl">
+
+    <!-- Forest Quiz -->
+    <div onclick="openQuiz('forest_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">🌲 Forest Quiz</h2>
+        <p class="text-center text-gray-600 mt-2">Learn About Forests</p>
+    </div>
+
+    <!-- Animals Quiz -->
+    <div onclick="openQuiz('animals_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">🐾 Animals Quiz</h2>
+        <p class="text-center text-gray-600 mt-2">Animal Knowledge</p>
+    </div>
+
+    <!-- Birds Quiz -->
+    <div onclick="openQuiz('bird_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">🐦 Birds Quiz</h2>
+        <p class="text-center text-gray-600 mt-2">Know the Birds</p>
+    </div>
+
+    <!-- Insects Quiz -->
+    <div onclick="openQuiz('insects_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">🐞 Insects Quiz</h2>
+        <p class="text-center text-gray-600 mt-2">Learn About Insects</p>
+    </div>
+
+    <!-- Plants Quiz -->
+    <div onclick="openQuiz('plants_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">🌿 Plants Quiz</h2>
+        <p class="text-center text-gray-600 mt-2">Know About Plants</p>
+    </div>
+
+    <!-- Nature Protection -->
+    <div onclick="openQuiz('nature_protection_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">🌍 Nature Protection</h2>
+        <p class="text-center text-gray-600 mt-2">Save the Earth</p>
+    </div>
+
+    <!-- Water Life -->
+    <div onclick="openQuiz('water_life_quiz.json')"
+         class="card cursor-pointer bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition transform">
+        <h2 class="text-2xl font-bold text-center">💧 Water Life</h2>
+        <p class="text-center text-gray-600 mt-2">Learn About Water Animals</p>
+    </div>
+
+</div>
+
+<script>
+function openQuiz(file) {
+    localStorage.setItem("quizFile", file);
+    window.location.href = "quiz.html";
+}
+</script>
+
+</body>
+</html>

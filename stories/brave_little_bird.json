@@ -1,0 +1,25 @@
+{
+  "title": "The Brave Little Bird",
+  "pages": [
+    {
+      "text": "A tiny blue bird named Tiko dreams of flying higher than all the clouds.",
+      "image": "bird_intro.png"
+    },
+    {
+      "text": "But Tiko feels scared every time he tries to fly far.",
+      "image": "bird_scared.png"
+    },
+    {
+      "text": "One day, a gentle wind pushes him upward, and he flaps his wings fast.",
+      "image": "bird_flying.png"
+    },
+    {
+      "text": "Tiko finally reaches the soft white clouds and laughs joyfully.",
+      "image": "clouds.png"
+    },
+    {
+      "text": "He returns home proudly. Now Tiko knows he can do anything!",
+      "image": "bird_proud.png"
+    }
+  ]
+}
